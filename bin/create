@@ -18,11 +18,11 @@ cp -rf ./* ../$1/
 cp .gitignore ../$1/
 echo -e '\n\e[32m[create]: Terminado :)'
 echo -e '\n\e[96m[open]: Abriendo carpeta de archivos'
-exo-open --launch FileManager --workspace-directory ../$1
+exo-open --launch FileManager --working-directory ../$1
 if [ `which texstudio` != '' ];
     then 
         echo '[open]: Abriendo TexStudio'
-    texstudio --no-session ../$1/document.tex ../$1/cover.tex ../$1/bibliography.bib %> /dev/null &
+    texstudio --no-session ../$1/document.tex ../$1/cover.tex ../$1/bibliography.bib &> /dev/null &
 fi
 echo -e '\e[32m\n[open]: Desea abrir report.pdf?'
 read -p '(enter) no, escriba algo y (enter) si: ' res
