@@ -4,7 +4,7 @@ exo-open --launch FileManager
 if [ `which texstudio` != '' ];
     then 
         echo '[open]: Abriendo TexStudio'
-    texstudio --no-session ./cover.tex ./document.tex ./bibliography.bib &> &
+    texstudio --no-session ./cover.tex ./document.tex ./bibliography.bib &> /dev/null &
 fi
 echo -e '\e[32m\n[open]: Desea abrir report.pdf?'
 read -p '(enter) no, escriba algo y (enter) si: ' res
