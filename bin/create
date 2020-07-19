@@ -17,18 +17,32 @@ mkdir ../$1/
 cp -rf ./* ../$1/
 cp .gitignore ../$1/
 echo -e '\n\e[32m[create]: Terminado :)'
-echo -e '\n\e[96m[open]: Abriendo carpeta de archivos'
-exo-open --launch FileManager --working-directory ../$1
-if [ `which texstudio` != '' ];
+
+echo -e '\e[32m\n[open]: Desea abrir área de trabajo?'
+read -p '(enter) si, escriba algo y (enter) no: ' resAx
+
+# preguntar si se abre aplicaciones
+if [ "$resAx" == '' ];
     then 
-        echo '[open]: Abriendo TexStudio'
-    texstudio --no-session ../$1/document.tex ../$1/cover.tex ../$1/bibliography.bib &> /dev/null &
+
+	echo -e '\n\e[96m[open]: Abriendo carpeta de archivos'
+	exo-open --launch FileManager --working-directory ../$1
+	if [ `which texstudio` != '' ];
+    		then 
+	        echo '[open]: Abriendo TexStudio'
+		texstudio --no-session ../$1/document.tex ../$1/cover.tex ../$1/bibliography.bib &> /dev/null &
+	fi
+	echo -e '\e[32m\n[open]: Desea abrir report.pdf?'
+	read -p '(enter) no, escriba algo y (enter) si: ' res
+	if [ "$res" != '' ];
+		then 
+	        echo '[open]: Abriendo PDF'
+		gio open ../$1/document.pdf
+	fi
 fi
-echo -e '\e[32m\n[open]: Desea abrir report.pdf?'
-read -p '(enter) no, escriba algo y (enter) si: ' res
-if [ "$res" != '' ];
-    then 
-        echo '[open]: Abriendo PDF'
-    gio open ../$1/document.pdf
-fi
+
 echo ''
+echo -e 'Para regresar ejecute exit\n'
+cd ../$1/
+exec bash
+
