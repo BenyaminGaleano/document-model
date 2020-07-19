@@ -1,0 +1,4 @@
+#!/bin/bash
+pdflatex -synctex=1 -interaction=nonstopmode document.tex 
+bibtex document.aux
+pdflatex -synctex=1 -interaction=nonstopmode document.tex 
