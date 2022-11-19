@@ -9,6 +9,16 @@ vaya al archivo referencias.bib y coloque sus fuentes en el formato establecido.
 ### Cubierta
 La cubierta del trabajo se encuentra en el archivo cover.tex, modifiquelo para que quede a su gusto
 
+### Instalación
+Si tiene Python instalado puedo optar por instalar [texpj](https://pypi.org/project/texpj/) y así tener una forma sencilla de administrar
+plantillas, si ya tiene instalado texpj ejecute los siguiente:
+
+```
+texpj install BenyaminGaleano/document-model NOMBRE_PLANTILLA "documento base para investigaciones"
+```
+
+Para que funcione se necesita que tenga instalado **git**.
+
 ### Windows
 Por el momento no he hecho instaladores para windows así que toca manual.
 
